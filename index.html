@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Puru Singh Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: black;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .frosted-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(3px);
+      background: rgba(255, 255, 255, 0.02);
+      z-index: 1;
+    }
+
+    .main-container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      height: 100vh;
+      color: white;
+    }
+
+    .left-panel {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 60px 40px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .left-panel h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      margin-top: 0rem;
+    }
+
+    .left-panel p {
+      margin: 6px 0;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #ddd;
+    }
+
+    .right-panel {
+      flex: 2;
+      overflow-y: auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .right-panel section {
+      margin-bottom: 40px;
+    }
+
+    .right-panel h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      border-bottom: 1px solid white;
+      padding-bottom: 5px;
+    }
+
+    .right-panel p {
+      margin: 6px 0;
+      line-height: 1.5;
+    }
+
+    /* Scrollbar styling */
+    .right-panel::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .right-panel::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+    }
+
+  </style>
+</head>
+<body>
+
+<canvas id="honeycomb"></canvas>
+<div class="frosted-overlay"></div>
+
+<div class="main-container">
+  <div class="left-panel">
+    <div>
+      <h1>Puru Singh</h1>
+      <p>Bangalore, India</p>
+      <p>Email: puru.singh@outlook.in</p>
+      <p>Phone: +91 7838014645</p>
+      <a href="Puru_Singh_Resume.pdf" download class="btn">Download Resume</a>
+    </div>
+    <div>
+        <section>
+            <h2>Skills & Certifications</h2>
+            <p><strong>Skills:</strong> 
+                <!-- Python, Spark, Airflow, SQL, Databricks, C++, ML, Gen AI, Kotlin, Power BI -->
+                <ul>
+                    <li>Python</li>
+                    <li>Spark</li>
+                    <li>Airflow</li>
+                    <li>SQL</li>
+                    <li>Databricks</li>
+                    <li>ML, Gen AI</li>
+                    <li>C++</li>
+                    <li>Power BI</li>
+                    <li>Kotlin</li>
+                </ul>
+            
+            </p>
+            <p><strong>Certifications:</strong></p>
+            <ul>
+                <li>Databricks Data Engineer – Professional & Associate</li>
+                <li>Microsoft Azure AI Fundamentals (AI-900)</li>
+                <li>AWS Cloud Practitioner (CLF-C01)</li>
+            </ul>
+        </section>
+    </div>
+    <div>
+        <!-- <p>Languages: English, Hindi</p>
+        <p>Typing Speed: 120+ WPM</p> -->
+        <section>
+            <p><strong>Languages:</strong> English, Hindi</p>
+            <p><strong>Typing Speed:</strong> 120+ WPM</p>
+            <!-- <h2>Hobbies</h2>
+            <ul>
+                <li>Databricks Data Engineer – Professional & Associate</li>
+                <li>Microsoft Azure AI Fundamentals (AI-900)</li>
+                <li>AWS Cloud Practitioner (CLF-C01)</li>
+            </ul> -->
+        </section>
+    </div>
+  </div>
+
+  <div class="right-panel">
+    <section>
+      <h2>Education</h2>
+      <p><strong>Graphic Era Deemed to be University</strong>, Dehradun, UK</p>
+      <p>B.Tech in Computer Science (2020 - 2024), GPA: 8.73</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <p><strong>Genpact, Bangalore (Business Analyst - Gen AI)</strong> — Oct 2024 – Present</p>
+      <ul>
+        <li>Migrated and optimized complex ETL jobs and pipelines from PostgreSQL based Greenplum to SparkSQL on Databricks.</li>
+        <li>Improved performance by up to 80% using Spark-specific optimizations.</li>
+        <li>Designed and orchestrated scalable workflows with Databricks Jobs.</li>
+      </ul>
+      <p><strong>Genpact, Hyderabad (Intern - Gen AI)</strong> — Feb 2024 – Jul 2024</p>
+      <ul>
+        <li>Built a financial summary generator for 10-K reports using Gen AI.</li>
+        <li>Created a Power BI dashboard for consumer banking insights.</li>
+      </ul>
+      <p><strong>DRDO, New Delhi (Android Dev Intern)</strong> — Jul 2023 – Aug 2023</p>
+      <ul>
+        <li>Built a Kotlin app for SMS-based notification forwarding.</li>
+        <li>Performed mobile security audits using MobSF.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <p><strong>Face Recognition using One-Shot Learning</strong></p>
+      <ul>
+        <li>Over 90% speedup over traditional face recognition in both Learning and Recognition</li>
+        <li>Used FaceNet + Haar-Cascade, and one-shot classification.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Achievements</h2>
+      <ul>
+        <li>Top 50 – Coursera Employment Hackathon (2023)</li>
+        <li>3rd Place – Intel OneAPI Hackathon, IIT Roorkee (2023)</li>
+      </ul>
+    </section>
+
+    
+  </div>
+</div>
+
+<!-- Honeycomb Background Script -->
+<script>
+  const canvas = document.getElementById("honeycomb");
+  const ctx = canvas.getContext("2d");
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+
+  let mouse = { x: width / 2, y: height / 2 };
+
+  window.addEventListener("resize", () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  const hexRadius = 80;
+  const spacingFactor = 1.1;
+  const hexWidth = 2 * hexRadius;
+  const hexHeight = Math.sqrt(3) * hexRadius;
+  const horizDist = hexWidth * 3 / 4 * spacingFactor;
+  const vertDist = hexHeight * spacingFactor;
+
+  function drawHex(x, y, brightness) {
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+      const angle = Math.PI / 3 * i;
+      const px = x + hexRadius * Math.cos(angle);
+      const py = y + hexRadius * Math.sin(angle);
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+    if (brightness > 0.1) {
+      ctx.strokeStyle = `rgba(255,255,255,${brightness})`;
+      ctx.shadowColor = `rgba(255,255,255,${brightness})`;
+      ctx.shadowBlur = 10 * brightness;
+    } else {
+      ctx.strokeStyle = "rgba(100,100,100,0.08)";
+      ctx.shadowBlur = 0;
+    }
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+  }
+
+  function drawGrid() {
+    ctx.clearRect(0, 0, width, height);
+    const cols = Math.ceil(width / horizDist) + 1;
+    const rows = Math.ceil(height / vertDist) + 1;
+
+    for (let col = 0; col < cols; col++) {
+      for (let row = 0; row < rows; row++) {
+        const x = col * horizDist;
+        const y = row * vertDist + (col % 2 === 0 ? 0 : vertDist / 2);
+        const dx = mouse.x - x;
+        const dy = mouse.y - y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const brightness = Math.max(0, 1 - dist / 200);
+        drawHex(x, y, brightness);
+      }
+    }
+    requestAnimationFrame(drawGrid);
+  }
+
+  drawGrid();
+</script>
+</body>
+</html>
