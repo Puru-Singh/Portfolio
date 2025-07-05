@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Puru Singh Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
@@ -188,7 +188,6 @@
   </div>
 </div>
 
-<!-- JavaScript for Honeycomb -->
 <script>
   const canvas = document.getElementById("honeycomb");
   const ctx = canvas.getContext("2d");
@@ -205,6 +204,13 @@
   const vertDist = hexHeight * spacingFactor;
 
   let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  let mouse = { x: width / 2, y: height / 2 };
+
+  const cols = Math.ceil(width / horizDist) + 1;
+  const rows = Math.ceil(height / vertDist) + 1;
+  const brightnessGrid = Array.from({ length: cols }, () =>
+    Array.from({ length: rows }, () => 0)
+  );
 
   function drawHex(x, y, brightness) {
     ctx.beginPath();
@@ -217,7 +223,7 @@
     }
     ctx.closePath();
 
-    if (brightness > 0.1) {
+    if (brightness > 0.05) {
       ctx.strokeStyle = `rgba(255,255,255,${brightness})`;
       ctx.shadowColor = `rgba(255,255,255,${brightness})`;
       ctx.shadowBlur = 10 * brightness;
@@ -230,20 +236,57 @@
     ctx.shadowBlur = 0;
   }
 
-  let mouse = { x: width / 2, y: height / 2 };
+  function drawGrid() {
+    ctx.clearRect(0, 0, width, height);
+    for (let col = 0; col < cols; col++) {
+      for (let row = 0; row < rows; row++) {
+        const x = col * horizDist;
+        const y = row * vertDist + (col % 2 === 0 ? 0 : vertDist / 2);
+        drawHex(x, y, brightnessGrid[col][row]);
+      }
+    }
+  }
 
-  if (!isMobile) {
-    document.addEventListener("mousemove", (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
+  function fadeBrightness() {
+    for (let col = 0; col < cols; col++) {
+      for (let row = 0; row < rows; row++) {
+        brightnessGrid[col][row] = Math.max(0, brightnessGrid[col][row] - 0.01);
+      }
+    }
+  }
+
+  function rippleAt(col, row) {
+    const ripple = [
+      [0, 0, 1.0],
+      [1, 0, 0.6], [-1, 0, 0.6],
+      [0, 1, 0.6], [0, -1, 0.6],
+      [1, 1, 0.4], [-1, -1, 0.4], [1, -1, 0.4], [-1, 1, 0.4]
+    ];
+
+    ripple.forEach(([dx, dy, val]) => {
+      const c = col + dx;
+      const r = row + dy;
+      if (c >= 0 && c < cols && r >= 0 && r < rows) {
+        brightnessGrid[c][r] = Math.max(brightnessGrid[c][r], val);
+      }
     });
   }
 
-  function drawDesktopGrid() {
-    ctx.clearRect(0, 0, width, height);
-    const cols = Math.ceil(width / horizDist) + 1;
-    const rows = Math.ceil(height / vertDist) + 1;
+  function triggerRandomRipple() {
+    const randCol = Math.floor(Math.random() * cols);
+    const randRow = Math.floor(Math.random() * rows);
+    rippleAt(randCol, randRow);
+  }
 
+  function animateMobile() {
+    fadeBrightness();
+    if (Math.random() < 0.05) triggerRandomRipple();
+    drawGrid();
+    requestAnimationFrame(animateMobile);
+  }
+
+  function animateDesktop() {
+    ctx.clearRect(0, 0, width, height);
     for (let col = 0; col < cols; col++) {
       for (let row = 0; row < rows; row++) {
         const x = col * horizDist;
@@ -255,26 +298,18 @@
         drawHex(x, y, brightness);
       }
     }
-    requestAnimationFrame(drawDesktopGrid);
+    requestAnimationFrame(animateDesktop);
   }
 
-  function drawMobileGrid() {
-    ctx.clearRect(0, 0, width, height);
-    const cols = Math.ceil(width / horizDist) + 1;
-    const rows = Math.ceil(height / vertDist) + 1;
-
-    for (let col = 0; col < cols; col++) {
-      for (let row = 0; row < rows; row++) {
-        const x = col * horizDist;
-        const y = row * vertDist + (col % 2 === 0 ? 0 : vertDist / 2);
-        const brightness = Math.random() < 0.005 ? 1 : 0.05;
-        drawHex(x, y, brightness);
-      }
-    }
-    setTimeout(drawMobileGrid, 100);
+  if (!isMobile) {
+    document.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+    animateDesktop();
+  } else {
+    animateMobile();
   }
-
-  isMobile ? drawMobileGrid() : drawDesktopGrid();
 
   window.addEventListener("resize", () => {
     width = window.innerWidth;
