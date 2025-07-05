@@ -11,7 +11,8 @@
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
       background: black;
-      overflow: hidden;
+      overflow: hidden; /* KEEP THIS */
+      position: relative;
     }
 
     canvas {
@@ -36,32 +37,66 @@
       position: relative;
       z-index: 2;
       display: flex;
+      flex-direction: row;
       height: 100vh;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 2vh 2vw;
+      gap: 2vw;
       color: white;
+      box-sizing: border-box;
+    }
+
+    .left-panel,
+    .right-panel {
+      box-sizing: border-box;
+      padding: 2vh 2vw;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
     }
 
     .left-panel {
       flex: 1;
       background: rgba(255, 255, 255, 0.03);
-      padding: 60px 40px;
-      border-right: 1px solid rgba(255,255,255,0.1);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
-    .left-panel h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      margin-top: 0rem;
+    .right-panel {
+      flex: 2;
+      background: rgba(255, 255, 255, 0.02);
     }
 
-    .left-panel p {
-      margin: 6px 0;
-      font-size: 1rem;
-      opacity: 0.85;
-    }
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+        height: auto;
+        padding: 2vh 5vw;
+      }
 
+      .left-panel {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        margin-bottom: 2vh;
+      }
+
+      .left-panel, .right-panel {
+        padding: 4vh 4vw;
+        flex: unset;
+        width: 100%;
+      }
+
+      .left-panel h1 {
+        font-size: 2rem;
+      }
+
+      .right-panel h2 {
+        font-size: 1.3rem;
+      }
+    }
     .btn {
       display: inline-block;
       margin-top: 20px;
@@ -78,29 +113,6 @@
       background: #ddd;
     }
 
-    .right-panel {
-      flex: 2;
-      overflow-y: auto;
-      padding: 40px;
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .right-panel section {
-      margin-bottom: 40px;
-    }
-
-    .right-panel h2 {
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-      border-bottom: 1px solid white;
-      padding-bottom: 5px;
-    }
-
-    .right-panel p {
-      margin: 6px 0;
-      line-height: 1.5;
-    }
-
     /* Scrollbar styling */
     .right-panel::-webkit-scrollbar {
       width: 8px;
@@ -110,7 +122,6 @@
       background-color: rgba(255, 255, 255, 0.3);
       border-radius: 4px;
     }
-
   </style>
 </head>
 <body>
@@ -131,19 +142,18 @@
         <section>
             <h2>Skills & Certifications</h2>
             <p><strong>Skills:</strong> 
-                <!-- Python, Spark, Airflow, SQL, Databricks, C++, ML, Gen AI, Kotlin, Power BI -->
                 <ul>
                     <li>Python</li>
-                    <li>Spark</li>
-                    <li>Airflow</li>
+                    <li>Apache Spark</li>
                     <li>SQL</li>
                     <li>Databricks</li>
-                    <li>ML, Gen AI</li>
+                    <li>Apache Airflow</li>
+                    <li>Machine Learning</li> 
+                    <li>Generative AI</li>
                     <li>C++</li>
                     <li>Power BI</li>
                     <li>Kotlin</li>
                 </ul>
-            
             </p>
             <p><strong>Certifications:</strong></p>
             <ul>
@@ -154,17 +164,9 @@
         </section>
     </div>
     <div>
-        <!-- <p>Languages: English, Hindi</p>
-        <p>Typing Speed: 120+ WPM</p> -->
         <section>
             <p><strong>Languages:</strong> English, Hindi</p>
             <p><strong>Typing Speed:</strong> 120+ WPM</p>
-            <!-- <h2>Hobbies</h2>
-            <ul>
-                <li>Databricks Data Engineer – Professional & Associate</li>
-                <li>Microsoft Azure AI Fundamentals (AI-900)</li>
-                <li>AWS Cloud Practitioner (CLF-C01)</li>
-            </ul> -->
         </section>
     </div>
   </div>
@@ -178,18 +180,18 @@
 
     <section>
       <h2>Experience</h2>
-      <p><strong>Genpact, Bangalore (Business Analyst - Gen AI)</strong> — Oct 2024 – Present</p>
+      <p><strong>Genpact, Bangalore (Data Engineer, Business Analyst) </strong> — Oct 2024 – Present</p>
       <ul>
         <li>Migrated and optimized complex ETL jobs and pipelines from PostgreSQL based Greenplum to SparkSQL on Databricks.</li>
         <li>Improved performance by up to 80% using Spark-specific optimizations.</li>
         <li>Designed and orchestrated scalable workflows with Databricks Jobs.</li>
       </ul>
-      <p><strong>Genpact, Hyderabad (Intern - Gen AI)</strong> — Feb 2024 – Jul 2024</p>
+      <p><strong>Genpact, Hyderabad (Intern - Data Analyst - Gen AI)</strong> — Feb 2024 – Jul 2024</p>
       <ul>
         <li>Built a financial summary generator for 10-K reports using Gen AI.</li>
         <li>Created a Power BI dashboard for consumer banking insights.</li>
       </ul>
-      <p><strong>DRDO, New Delhi (Android Dev Intern)</strong> — Jul 2023 – Aug 2023</p>
+      <p><strong>DRDO, New Delhi (Intern - Android DeDevelopment and Security)</strong> — Jul 2023 – Aug 2023</p>
       <ul>
         <li>Built a Kotlin app for SMS-based notification forwarding.</li>
         <li>Performed mobile security audits using MobSF.</li>
@@ -212,12 +214,9 @@
         <li>3rd Place – Intel OneAPI Hackathon, IIT Roorkee (2023)</li>
       </ul>
     </section>
-
-    
   </div>
 </div>
 
-<!-- Honeycomb Background Script -->
 <script>
   const canvas = document.getElementById("honeycomb");
   const ctx = canvas.getContext("2d");
@@ -281,14 +280,15 @@
         const dx = mouse.x - x;
         const dy = mouse.y - y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        const brightness = Math.max(0, 1 - dist / 200);
+        const brightness = Math.max(0, (1.2 - dist / 200));
         drawHex(x, y, brightness);
       }
     }
     requestAnimationFrame(drawGrid);
   }
 
-  drawGrid();
+  // Initial call to start the animation loop
+  drawGrid(); 
 </script>
 </body>
 </html>
