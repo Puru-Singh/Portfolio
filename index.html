@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Puru Singh Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
@@ -11,6 +11,7 @@
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
       background: black;
+      overflow: hidden;
     }
 
     canvas {
@@ -34,31 +35,31 @@
     .main-container {
       position: relative;
       z-index: 2;
-      color: white;
       display: flex;
-      flex-direction: row;
       height: 100vh;
-    }
-
-    .left-panel, .right-panel {
-      padding: 40px;
-      overflow-y: auto;
+      color: white;
     }
 
     .left-panel {
       flex: 1;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 60px 40px;
       border-right: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .right-panel {
-      flex: 2;
-      background: rgba(255,255,255,0.02);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .left-panel h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      margin-top: 0rem;
+    }
+
+    .left-panel p {
+      margin: 6px 0;
+      font-size: 1rem;
+      opacity: 0.85;
     }
 
     .btn {
@@ -77,117 +78,146 @@
       background: #ddd;
     }
 
+    .right-panel {
+      flex: 2;
+      overflow-y: auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
     .right-panel section {
       margin-bottom: 40px;
     }
 
     .right-panel h2 {
-      border-bottom: 1px solid white;
       margin-bottom: 10px;
       font-size: 1.5rem;
+      border-bottom: 1px solid white;
+      padding-bottom: 5px;
     }
 
-    .right-panel p, .right-panel li {
+    .right-panel p {
+      margin: 6px 0;
       line-height: 1.5;
     }
 
-    ul {
-      margin: 0;
-      padding-left: 20px;
+    /* Scrollbar styling */
+    .right-panel::-webkit-scrollbar {
+      width: 8px;
     }
 
-    /* MOBILE VERSION */
-    @media (max-width: 768px) {
-      .main-container {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .left-panel, .right-panel {
-        width: 100%;
-        border: none;
-        padding: 30px 20px;
-      }
-
-      .left-panel {
-        background: rgba(255,255,255,0.03);
-      }
-
-      .right-panel {
-        background: rgba(255,255,255,0.02);
-      }
+    .right-panel::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
     }
+
   </style>
 </head>
 <body>
+
 <canvas id="honeycomb"></canvas>
 <div class="frosted-overlay"></div>
 
 <div class="main-container">
   <div class="left-panel">
-    <h1>Puru Singh</h1>
-    <p>Bangalore, India</p>
-    <p>Email: puru.singh@outlook.in</p>
-    <p>Phone: +91 7838014645</p>
-    <a href="Puru_Singh_Resume.pdf" download class="btn">Download Resume</a>
-    <p style="margin-top: 20px;">Languages: English, Hindi<br>Typing Speed: 120+ WPM</p>
+    <div>
+      <h1>Puru Singh</h1>
+      <p>Bangalore, India</p>
+      <p>Email: puru.singh@outlook.in</p>
+      <p>Phone: +91 7838014645</p>
+      <a href="Puru_Singh_Resume.pdf" download class="btn">Download Resume</a>
+    </div>
+    <div>
+        <section>
+            <h2>Skills & Certifications</h2>
+            <p><strong>Skills:</strong> 
+                <!-- Python, Spark, Airflow, SQL, Databricks, C++, ML, Gen AI, Kotlin, Power BI -->
+                <ul>
+                    <li>Python</li>
+                    <li>Spark</li>
+                    <li>Airflow</li>
+                    <li>SQL</li>
+                    <li>Databricks</li>
+                    <li>ML, Gen AI</li>
+                    <li>C++</li>
+                    <li>Power BI</li>
+                    <li>Kotlin</li>
+                </ul>
+            
+            </p>
+            <p><strong>Certifications:</strong></p>
+            <ul>
+                <li>Databricks Data Engineer – Professional & Associate</li>
+                <li>Microsoft Azure AI Fundamentals (AI-900)</li>
+                <li>AWS Cloud Practitioner (CLF-C01)</li>
+            </ul>
+        </section>
+    </div>
+    <div>
+        <!-- <p>Languages: English, Hindi</p>
+        <p>Typing Speed: 120+ WPM</p> -->
+        <section>
+            <p><strong>Languages:</strong> English, Hindi</p>
+            <p><strong>Typing Speed:</strong> 120+ WPM</p>
+            <!-- <h2>Hobbies</h2>
+            <ul>
+                <li>Databricks Data Engineer – Professional & Associate</li>
+                <li>Microsoft Azure AI Fundamentals (AI-900)</li>
+                <li>AWS Cloud Practitioner (CLF-C01)</li>
+            </ul> -->
+        </section>
+    </div>
   </div>
 
   <div class="right-panel">
     <section>
       <h2>Education</h2>
-      <p><strong>Graphic Era University</strong>, Dehradun — B.Tech in CSE (2020–2024), GPA: 8.73</p>
+      <p><strong>Graphic Era Deemed to be University</strong>, Dehradun, UK</p>
+      <p>B.Tech in Computer Science (2020 - 2024), GPA: 8.73</p>
     </section>
 
     <section>
       <h2>Experience</h2>
-      <p><strong>Genpact (Gen-AI Business Analyst)</strong> — Oct 2024–Present</p>
+      <p><strong>Genpact, Bangalore (Business Analyst - Gen AI)</strong> — Oct 2024 – Present</p>
       <ul>
-        <li>Optimized ETL pipelines from PostgreSQL to SparkSQL on Databricks.</li>
-        <li>Improved performance by up to 80%.</li>
-        <li>Created scalable workflows and dashboards.</li>
+        <li>Migrated and optimized complex ETL jobs and pipelines from PostgreSQL based Greenplum to SparkSQL on Databricks.</li>
+        <li>Improved performance by up to 80% using Spark-specific optimizations.</li>
+        <li>Designed and orchestrated scalable workflows with Databricks Jobs.</li>
       </ul>
-      <p><strong>Genpact Intern (Gen AI)</strong> — Feb 2024–Jul 2024</p>
+      <p><strong>Genpact, Hyderabad (Intern - Gen AI)</strong> — Feb 2024 – Jul 2024</p>
       <ul>
-        <li>Generated summaries for financial reports using GenAI.</li>
-        <li>Built Power BI dashboards for banking insights.</li>
+        <li>Built a financial summary generator for 10-K reports using Gen AI.</li>
+        <li>Created a Power BI dashboard for consumer banking insights.</li>
       </ul>
-      <p><strong>DRDO Intern</strong> — Jul 2023–Aug 2023</p>
+      <p><strong>DRDO, New Delhi (Android Dev Intern)</strong> — Jul 2023 – Aug 2023</p>
       <ul>
-        <li>Developed Kotlin SMS automation app.</li>
-        <li>Performed mobile app security testing.</li>
+        <li>Built a Kotlin app for SMS-based notification forwarding.</li>
+        <li>Performed mobile security audits using MobSF.</li>
       </ul>
     </section>
 
     <section>
       <h2>Projects</h2>
-      <p><strong>One-Shot Face Recognition System</strong></p>
+      <p><strong>Face Recognition using One-Shot Learning</strong></p>
       <ul>
-        <li>90% speedup using FaceNet + Haar-Cascade.</li>
-        <li>Distance-based classification with few samples.</li>
+        <li>Over 90% speedup over traditional face recognition in both Learning and Recognition</li>
+        <li>Used FaceNet + Haar-Cascade, and one-shot classification.</li>
       </ul>
     </section>
 
     <section>
       <h2>Achievements</h2>
       <ul>
-        <li>Top 50 – Coursera Hackathon (2023)</li>
-        <li>3rd – Intel OneAPI Hackathon (IIT Roorkee, 2023)</li>
+        <li>Top 50 – Coursera Employment Hackathon (2023)</li>
+        <li>3rd Place – Intel OneAPI Hackathon, IIT Roorkee (2023)</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Skills & Certifications</h2>
-      <p><strong>Skills:</strong> Python, Spark, Airflow, SQL, Databricks, C++, ML, Gen AI, Kotlin, Power BI</p>
-      <p><strong>Certifications:</strong></p>
-      <ul>
-        <li>Databricks Data Engineer – Associate & Pro</li>
-        <li>Azure AI-900, AWS CLF-C01</li>
-      </ul>
-    </section>
+    
   </div>
 </div>
 
+<!-- Honeycomb Background Script -->
 <script>
   const canvas = document.getElementById("honeycomb");
   const ctx = canvas.getContext("2d");
@@ -196,21 +226,26 @@
   canvas.width = width;
   canvas.height = height;
 
+  let mouse = { x: width / 2, y: height / 2 };
+
+  window.addEventListener("resize", () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
   const hexRadius = 80;
   const spacingFactor = 1.1;
   const hexWidth = 2 * hexRadius;
   const hexHeight = Math.sqrt(3) * hexRadius;
   const horizDist = hexWidth * 3 / 4 * spacingFactor;
   const vertDist = hexHeight * spacingFactor;
-
-  let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  let mouse = { x: width / 2, y: height / 2 };
-
-  const cols = Math.ceil(width / horizDist) + 1;
-  const rows = Math.ceil(height / vertDist) + 1;
-  const brightnessGrid = Array.from({ length: cols }, () =>
-    Array.from({ length: rows }, () => 0)
-  );
 
   function drawHex(x, y, brightness) {
     ctx.beginPath();
@@ -222,71 +257,23 @@
       else ctx.lineTo(px, py);
     }
     ctx.closePath();
-
-    if (brightness > 0.05) {
+    if (brightness > 0.1) {
       ctx.strokeStyle = `rgba(255,255,255,${brightness})`;
       ctx.shadowColor = `rgba(255,255,255,${brightness})`;
       ctx.shadowBlur = 10 * brightness;
     } else {
-      ctx.strokeStyle = "rgba(100,100,100,0.05)";
+      ctx.strokeStyle = "rgba(100,100,100,0.08)";
       ctx.shadowBlur = 0;
     }
-
     ctx.stroke();
     ctx.shadowBlur = 0;
   }
 
   function drawGrid() {
     ctx.clearRect(0, 0, width, height);
-    for (let col = 0; col < cols; col++) {
-      for (let row = 0; row < rows; row++) {
-        const x = col * horizDist;
-        const y = row * vertDist + (col % 2 === 0 ? 0 : vertDist / 2);
-        drawHex(x, y, brightnessGrid[col][row]);
-      }
-    }
-  }
+    const cols = Math.ceil(width / horizDist) + 1;
+    const rows = Math.ceil(height / vertDist) + 1;
 
-  function fadeBrightness() {
-    for (let col = 0; col < cols; col++) {
-      for (let row = 0; row < rows; row++) {
-        brightnessGrid[col][row] = Math.max(0, brightnessGrid[col][row] - 0.01);
-      }
-    }
-  }
-
-  function rippleAt(col, row) {
-    const ripple = [
-      [0, 0, 1.0],
-      [1, 0, 0.6], [-1, 0, 0.6],
-      [0, 1, 0.6], [0, -1, 0.6],
-      [1, 1, 0.4], [-1, -1, 0.4], [1, -1, 0.4], [-1, 1, 0.4]
-    ];
-
-    ripple.forEach(([dx, dy, val]) => {
-      const c = col + dx;
-      const r = row + dy;
-      if (c >= 0 && c < cols && r >= 0 && r < rows) {
-        brightnessGrid[c][r] = Math.max(brightnessGrid[c][r], val);
-      }
-    });
-  }
-
-  function triggerRandomRipple() {
-    const randCol = Math.floor(Math.random() * cols);
-    const randRow = Math.floor(Math.random() * rows);
-    rippleAt(randCol, randRow);
-  }
-
-  function animateMobile() {
-    fadeBrightness();
-    if (Math.random() < 0.05) triggerRandomRipple();
-    drawGrid();
-    requestAnimationFrame(animateMobile);
-  }
-
-  function animateDesktop() {
-    ctx.clearRect(0, 0, width, height);
     for (let col = 0; col < cols; col++) {
       for (let row = 0; row < rows; row++) {
         const x = col * horizDist;
@@ -298,25 +285,10 @@
         drawHex(x, y, brightness);
       }
     }
-    requestAnimationFrame(animateDesktop);
+    requestAnimationFrame(drawGrid);
   }
 
-  if (!isMobile) {
-    document.addEventListener("mousemove", (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-    animateDesktop();
-  } else {
-    animateMobile();
-  }
-
-  window.addEventListener("resize", () => {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-  });
+  drawGrid();
 </script>
 </body>
 </html>
