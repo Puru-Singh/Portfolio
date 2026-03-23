@@ -366,6 +366,28 @@
       font-size: 0.85rem;
     }
 
+    /* ── Reference Links ── */
+    .ref-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .ref-link:hover {
+      color: var(--teal);
+      border-color: rgba(20, 184, 166, 0.3);
+      background: rgba(20, 184, 166, 0.06);
+      transform: translateY(-1px);
+    }
+
     /* ── Projects ── */
     .projects-grid {
       display: grid;
@@ -758,29 +780,38 @@
   </div>
   <div class="timeline">
     <div class="timeline-item reveal">
-      <div class="role">Data Engineer &ndash; Business Analyst</div>
-      <div class="company">Genpact</div>
+      <div class="role">Data Engineer &ndash; Business Analyst, Gen-AI</div>
+      <div class="company">Genpact <span style="color: var(--text-dim); font-weight: 400; font-size: 0.85em;">&middot; Client: <span style="color: var(--orange); font-weight: 700;">GE Vernova</span></span></div>
       <div class="meta">
         <span>Bangalore, Karnataka</span>
         <span>Oct 2024 &ndash; Present</span>
       </div>
       <ul>
-        <li>Migrated and optimized complex ETL pipelines from PostgreSQL-based Greenplum to SparkSQL on Databricks.</li>
-        <li>Improved pipeline performance by up to 80% through logical flow enhancements and Spark-specific optimizations.</li>
-        <li>Designed scalable workflows and connection modules using Python for Databricks and Apache Airflow.</li>
+        <li>Spearheaded the end-to-end migration of mission-critical ETL pipelines from PostgreSQL (Greenplum) to SparkSQL and PySpark on Databricks, improving job runtimes by 80% via logical flow enhancements.</li>
+        <li>Owned the development of backend architecture on Databricks for 70+ Business Objects (BO) reports integrated with Oracle ERP systems, streamlining complex reporting for key business stakeholders.</li>
+        <li>Maintained the GSC Bowler (Global Supply Chain) performance-tracking system, ensuring the integrity of high-fidelity data for critical supply chain KPIs.</li>
+        <li>Modernized the Enterprise Data Lake (EDL) by transitioning sources from PowerNow 1.0 to 2.0, ensuring architectural consistency and zero data loss for global operations.</li>
+        <li>Orchestrated robust workflows using Apache Airflow and Databricks native features to ensure scalable, production-grade data processing.</li>
+        <li>Engineered Gen-AI and RAG systems using Python to automate insight generation and improve data discoverability within the data ecosystem.</li>
+        <li>Collaborated across cross-functional teams to streamline migration across Ingestion, Transformation, and Visualization layers.</li>
       </ul>
+      <a href="https://www.youtube.com/watch?v=VPbRgHDMk6I" target="_blank" class="ref-link" title="Genpact x GE Vernova – Data Engineering Overview">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Genpact x GE Vernova
+      </a>
     </div>
 
     <div class="timeline-item reveal">
-      <div class="role">Intern &ndash; Data Analyst &amp; Gen AI</div>
+      <div class="role">Intern &ndash; Data Analyst, Gen-AI</div>
       <div class="company">Genpact</div>
       <div class="meta">
         <span>Hyderabad, Telangana</span>
         <span>Feb 2024 &ndash; Jul 2024</span>
       </div>
       <ul>
-        <li>Built a Gen AI&ndash;powered financial summary generator for 10-K reports using Python, LangChain, and Ollama.</li>
-        <li>Created a Power BI dashboard delivering consumer banking insights.</li>
+        <li>Developed a Python automation script using LangChain to generate summaries of 10-K financial reports, achieving an 85% speedup over existing manual solutions.</li>
+        <li>Built a Financial Health Dashboard for Consumer Banking using Power BI, providing a comprehensive overview of income and spending with automated goal suggestions.</li>
+        <li>Performed data preprocessing and cleaning to extract actionable insights for banking sector stakeholders.</li>
       </ul>
     </div>
 
@@ -792,8 +823,9 @@
         <span>Jul 2023 &ndash; Aug 2023</span>
       </div>
       <ul>
-        <li>Built a Kotlin app for SMS-based notification forwarding.</li>
-        <li>Performed mobile security audits using MobSF.</li>
+        <li>Developed a background Android application using Kotlin and Jetpack Compose to capture and forward system notifications via SMS.</li>
+        <li>Conducted security analysis using MobSF (static and dynamic), identifying critical flaws and reducing total testing time by 70%.</li>
+        <li>Implemented real-time logging and system-level API integrations (SmsManager) for secure notification monitoring.</li>
       </ul>
     </div>
   </div>
@@ -809,11 +841,10 @@
     <div class="project-card reveal">
       <h3>Loocle &ndash; Self-Hosted Photo Backup &amp; Web App</h3>
       <ul>
-        <li>Self-hosted photo management system replicating Google Photos, running on local devices with zero cloud dependencies.</li>
-        <li>Automated backups from Android devices via Wireless ADB.</li>
-        <li>Auto-generated tags using locally running LLMs (Ollama + Gemma 3).</li>
-        <li>Face recognition through multi-shot classification, enabling search by face.</li>
-        <li>Cross-platform front end built with Flutter.</li>
+        <li>Engineered a cloud-independent photo management system replicating the Google Photos experience on local hardware.</li>
+        <li>Built a Python Flask web app with fast metadata-based search, caching, and multi-shot facial recognition features.</li>
+        <li>Automated wireless Android backups using ADB over Wi-Fi for seamless syncing between devices.</li>
+        <li>Implemented automatic metadata tagging using local LLMs via Ollama to associate detected faces with person names, enhancing organization and quick retrieval.</li>
       </ul>
     </div>
     <div class="project-card reveal">
@@ -836,18 +867,22 @@
   <div class="skills-wrap reveal">
     <div class="skills-grid">
       <span class="skill-tag">Python</span>
-      <span class="skill-tag">PySpark</span>
+      <span class="skill-tag">Flask</span>
       <span class="skill-tag">Apache Spark</span>
-      <span class="skill-tag">SQL</span>
-      <span class="skill-tag">Databricks</span>
       <span class="skill-tag">Apache Airflow</span>
-      <span class="skill-tag">Machine Learning</span>
+      <span class="skill-tag">Databricks</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">AWS</span>
+      <span class="skill-tag">REST APIs</span>
+      <span class="skill-tag">C++</span>
+      <span class="skill-tag">Kotlin</span>
+      <span class="skill-tag">Power BI</span>
+      <span class="skill-tag">Excel</span>
       <span class="skill-tag">LangChain</span>
       <span class="skill-tag">RAGs</span>
       <span class="skill-tag">Ollama</span>
-      <span class="skill-tag">C++</span>
-      <span class="skill-tag">Power BI</span>
-      <span class="skill-tag">Kotlin</span>
+      <span class="skill-tag">Machine Learning</span>
+      <span class="skill-tag">Automation Scripting</span>
     </div>
   </div>
 
