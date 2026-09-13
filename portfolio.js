@@ -1,4 +1,4 @@
-﻿/* Decorative ETL lineage. The foreground diagram carries the accessible explanation. */
+/* Decorative ETL lineage. The foreground diagram carries the accessible explanation. */
 (() => {
   const canvas = document.getElementById('dagCanvas');
   const ctx = canvas.getContext('2d');
@@ -69,7 +69,7 @@
   menu.addEventListener('click',e => {if(e.target.closest('a'))close();});
   document.addEventListener('keydown',e => {if(e.key==='Escape'&&button.getAttribute('aria-expanded')==='true'){close();button.focus();}});
   document.addEventListener('click',e => {if(!e.target.closest('nav'))close();});
-  matchMedia('(min-width: 721px)').addEventListener('change',close);
+  matchMedia('(min-width: 901px)').addEventListener('change',close);
   const links = [...menu.querySelectorAll('a')];
   const sections = [...document.querySelectorAll('section[id]')];
   const bar = document.getElementById('scrollProgress');

@@ -45,7 +45,7 @@ body {
   line-height:1.7}
 a {
   color:inherit;
-  text-underline-offset:4px}
+  text-decoration:none}
 button {
   font:inherit}
 ::selection {
@@ -116,7 +116,7 @@ nav {
 .nav-center a:hover,.nav-center a.active {
   color:var(--text)}
 .nav-center a.active {
-  box-shadow:0 2px var(--orange);
+  color:var(--teal);
   padding-bottom:7px}
 .nav-social {
   display:flex;
@@ -134,8 +134,19 @@ nav {
 .nav-social svg {
   width:15px;
   height:15px}
-.nav-social a:last-child {
-  display:none}
+.nav-social a.monkeytype-link {
+  display:inline-flex;
+  width:auto;
+  flex-shrink:0;
+  gap:7px;
+  padding:0 12px;
+  border-radius:100px;
+  font-size:12px;
+  font-weight:500;
+  white-space:nowrap;
+  background:var(--surface)}
+.nav-social a.monkeytype-link svg {
+  flex-shrink:0}
 .nav-social a:hover {
   color:var(--teal);
   border-color:var(--teal)}
@@ -613,17 +624,23 @@ section {
   grid-template-columns:repeat(2,1fr)}
 }
 
-@media(max-width:720px) {
+@media(max-width:900px) {
   html {
-  scroll-padding-top:88px}
+  scroll-padding-top:132px}
 nav {
-  height:70px;
-  padding:0 6vw;
-  flex-wrap:wrap}
+  height:114px;
+  padding:10px 6vw;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:6px 10px}
 .nav-logo {
   font-size:17px}
 .nav-social {
-  margin-left:auto}
+  margin-left:auto;
+  grid-column:2;
+  grid-row:1}
+.nav-social a:not(.monkeytype-link) {
+  display:none}
 .nav-social a {
   width:40px;
   height:40px}
@@ -638,11 +655,13 @@ nav {
   font-size:12px;
   min-height:44px;
   color:var(--text);
-  order:3}
+  grid-column:1 / -1;
+  grid-row:2;
+  justify-self:end}
 .nav-center {
   display:none;
   position:absolute;
-  top:69px;
+  top:113px;
   left:0;
   right:0;
   background:var(--surface);
@@ -757,8 +776,15 @@ footer {
 }
 
 @media(max-width:370px) {
-  .nav-social {
-  display:none}
+  .nav-logo {
+  font-size:14px}
+.logo-mark {
+  margin-right:4px;
+  font-size:25px}
+.nav-social a.monkeytype-link {
+  font-size:10px;
+  padding:0 8px;
+  gap:5px}
 .menu-toggle {
   margin-left:auto}
 .hero h1 {
@@ -812,3 +838,8 @@ section {
   display:none}
 }
 
+@media (min-width:371px) and (max-width:420px) {
+  .nav-logo { font-size:15px; }
+  .logo-mark { margin-right:4px; font-size:25px; }
+  .nav-social a.monkeytype-link { font-size:11px; padding:0 8px; gap:5px; }
+}
